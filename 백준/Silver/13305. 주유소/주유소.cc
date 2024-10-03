@@ -4,10 +4,11 @@
 #include<algorithm>
 using namespace std;
 
-int dis[100000];
-int pri[100000];
+long long dis[100001];
+long long pri[100001];
 int main(void) {
-   int N,t=1,k=0,ans=0;
+   int N,t=1,k=0;
+   long long ans=0;
    cin>>N;
    for(int i=0;i<N-1;i++){
     cin>>dis[i];
