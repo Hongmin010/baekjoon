@@ -3,7 +3,6 @@
 #include<vector>
 void knight(void);
 using namespace std;
-bool dfs(int,int);
 int dx[8]={-2,-1,1,2,2,1,-1,-2};
 int dy[8]={1,2,2,1,-1,-2,-2,-1};
 int N,l,nx,ny,num=0;
