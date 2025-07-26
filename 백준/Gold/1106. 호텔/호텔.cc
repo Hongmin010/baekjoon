@@ -9,7 +9,6 @@ int main(void){
     for(int i=0;i<N;i++){
         cin>>hotel[i].second>>hotel[i].first;
     }
-    for(int i=0;i<1100;i++) money[1100]=11111111;
     sort(hotel,hotel+N);
     for(int i=1;i<c+100;i++){
         minC=10000000;
