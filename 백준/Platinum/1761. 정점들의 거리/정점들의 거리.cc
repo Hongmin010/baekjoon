@@ -34,24 +34,25 @@ void fillArr(int n){
 
 int findLCA(int a, int b){
     if(depthFromRoot[a] < depthFromRoot[b]) swap(a,b);
-    int diffOfDepth = depthFromRoot[a]-depthFromRoot[b];
-    for(int k=0;diffOfDepth>0;k++){
-        if(diffOfDepth % 2 == 1){
-            a=arr[k][a];
+
+    int diff = depthFromRoot[a] - depthFromRoot[b];
+    for(int k = 0; k < 17; k++){
+        if(diff & (1 << k)){
+            a = arr[k][a];
         }
-        diffOfDepth/=2;
     }
+
     if(a==b) return a;
 
-    for(int k= 16; k >= 0 ; k--){
-        if(arr[k][a]!=0 and arr[k][a]!=arr[k][b]){
-            a=arr[k][a];
-            b=arr[k][b];
+    for(int k=16; k>=0; k--){
+        if(arr[k][a] != 0 && arr[k][a] != arr[k][b]){
+            a = arr[k][a];
+            b = arr[k][b];
         }
     }
-
     return arr[0][a];
 }
+
 
 
 
