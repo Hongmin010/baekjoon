@@ -6,7 +6,7 @@ int find_parent(int);
 int N,M,K;
 int allCard[4000000];
 int parent[4000000];
-int enemyCard[10000];
+int enemyCard[10001];
 int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -16,6 +16,7 @@ int main(void) {
         cin >> allCard[i];
         parent[i]=i;
     }
+    parent[M]=M;
     sort(allCard,allCard+M);
     for(int i=0;i<K;i++){
         int n,idx,parent_idx;
@@ -23,7 +24,7 @@ int main(void) {
         idx = upper_bound(allCard,allCard+M,n) - allCard;
         parent_idx = find_parent(idx);
         cout<<allCard[parent_idx]<<"\n";
-        parent[idx] = parent_idx+1;
+        parent[parent_idx] = parent_idx+1;
     }
     
 
@@ -33,5 +34,5 @@ int main(void) {
 
 int find_parent(int i){
     if(parent[i]==i) return i;
-    return find_parent(parent[i]);
+    return parent[i] = find_parent(parent[i]);
 }
